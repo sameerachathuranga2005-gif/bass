@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="si" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baas.lk | ලංකාවේ අංක 1 විශ්වාසනීය බාස්ලාගේ සේවා පද්ධතිය | Sri Lanka's #1 Trusted Baas Network</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome 6 Icons CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts: Plus Jakarta Sans, Noto Sans Sinhala, and Noto Sans Tamil -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800;900&family=Noto+Sans+Tamil:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Noto Sans Sinhala', 'Noto Sans Tamil', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brandBlue: {
+              50: '#eef6ff',
+              100: '#d9eaff',
+              200: '#bcd9ff',
+              300: '#8ec0ff',
+              400: '#599cff',
+              500: '#0066fe',
+              600: '#004fe6',
+              700: '#003eb8',
+              800: '#022e86',
+              900: '#021845',
+              950: '#010c24',
+            },
+            brandOrange: {
+              300: '#fde047',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            darkSurface: {
+              800: '#0b192e',
+              900: '#071223',
+              950: '#030a16',
+            }
+          },
+          boxShadow: {
+            '3d': '0 20px 40px -15px rgba(2, 24, 69, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.4) inset',
+            '3d-hover': '0 30px 60px -15px rgba(0, 79, 230, 0.35), 0 0 2px 1px rgba(245, 158, 11, 0.6) inset',
+            'neon-orange': '0 0 25px rgba(245, 158, 11, 0.45)',
+            'neon-blue': '0 0 30px rgba(0, 102, 254, 0.35)',
+            'inner-glow': 'inset 0 2px 6px rgba(255, 255, 255, 0.2), inset 0 -2px 6px rgba(0, 0, 0, 0.2)',
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-medium': 'float 4s ease-in-out infinite',
+            'float-fast': 'float 2.8s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 2.5s infinite',
+            'spin-slow': 'spin 18s linear infinite',
+            'shine': 'shine 4s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-14px) rotate(1deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)' },
+              '50%': { boxShadow: '0 0 40px rgba(245, 158, 11, 0.7)' },
+            },
+            shine: {
+              '0%': { backgroundPosition: '-200% 0' },
+              '100%': { backgroundPosition: '200% 0' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-slate-800 font-sans selection:bg-brandOrange-500 selection:text-white">
+
+  <!-- ================================================================= -->
+  <!-- TOAST NOTIFICATION STACK -->
+  <!-- ================================================================= -->
+  <div id="toast-container" class="fixed top-5 right-5 z-[200] flex flex-col gap-3 pointer-events-none"></div>
+
+  <!-- ================================================================= -->
+  <!-- TOP ANNOUNCEMENT BAR (TRILINGUAL SELECTOR & 24/7 HOTLINE) -->
+  <!-- ================================================================= -->
+  <div class="bg-brandBlue-950 text-slate-300 text-xs py-2 px-4 border-b border-brandBlue-800/60 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      
+      <!-- Live Status & Online Pro Count -->
+      <div class="flex items-center gap-4">
+        <span class="inline-flex items-center gap-2 text-amber-400 font-bold bg-amber-400/10 px-2.5 py-1 rounded-full border border-amber-400/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span id="txt-online-baas">🟢 ලංකාව පුරා පරීක්ෂා කළ බාස්ලා 1,482ක් සූදානමින්!</span>
+        </span>
+        <span class="hidden md:inline text-slate-600">|</span>
+        <span class="hidden md:inline text-slate-300 font-medium">
+          <i class="fa-solid fa-phone-volume text-brandOrange-400 mr-1.5 animate-pulse"></i> 
+          <span id="txt-support-label">ක්ෂණික පාරිභෝගික සහාය:</span> 
+          <a href="tel:0112345678" class="text-white hover:text-brandOrange-400 transition font-black ml-1">011 234 5678</a>
+        </span>
+      </div>
+
+      <!-- Trilingual Language Switcher (Sinhala | English | Tamil) & Emergency SOS -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Tri-Language Pill Selector -->
+        <div class="flex items-center gap-1 bg-slate-900/90 p-1 rounded-full border border-slate-700 shadow-inner">
+          <button onclick="setLang('si')" id="lang-si" class="px-3 py-1 rounded-full text-[11px] font-black transition-all bg-gradient-to-r from-brandOrange-500 to-amber-500 text-slate-950 shadow-md">
+            සිංහල
+          </button>
+          <button onclick="setLang('en')" id="lang-en" class="px-3 py-1 rounded-full text-[11px] font-bold text-slate-400 hover:text-white transition-all">
+            English
+          </button>
+          <button onclick="setLang('ta')" id="lang-ta" class="px-3 py-1 rounded-full text-[11px] font-bold text-slate-400 hover:text-white transition-all">
+            தமிழ்
+          </button>
+        </div>
+
+        <!-- SOS Quick Hotline Button -->
+        <button onclick="openSosModal()" class="inline-flex items-center gap-1.5 text-rose-300 hover:text-white font-black transition text-[11px] bg-rose-950/70 hover:bg-rose-900 px-3 py-1.5 rounded-full border border-rose-700/60 shadow-lg shadow-rose-900/30">
+          <i class="fa-solid fa-triangle-exclamation text-rose-400 animate-bounce"></i> 
+          <span id="txt-sos-btn">හදිසි SOS</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- HEADER & NAVIGATION -->
+  <!-- ================================================================= -->
+  <header class="sticky top-0 z-40 glass-nav shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo with 3D Float Icon -->
+      <a href="#" class="flex items-center gap-3 group shrink-0">
+        <div class="w-11 h-11 bg-gradient-to-tr from-brandBlue-800 via-brandBlue-600 to-brandBlue-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-brandBlue-600/35 group-hover:scale-110 group-hover:-rotate-6 transition duration-300 border border-white/20">
+          <i class="fa-solid fa-house-wrench text-2xl text-brandOrange-400 drop-shadow-md"></i>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1">
+            <span class="text-2xl font-black text-brandBlue-950 tracking-tight leading-none">Baas<span class="text-brandOrange-500">.lk</span></span>
+            <span class="bg-amber-400/20 text-amber-600 text-[9px] font-black px-1.5 py-0.5 rounded border border-amber-300">PRO</span>
+          </div>
+          <span class="text-[9px] font-extrabold text-slate-400 tracking-[0.22em] uppercase mt-0.5" id="txt-logo-subtitle">Verified Sri Lanka</span>
+        </div>
+      </a>
+
+      <!-- Quick Search Bar with Instant Suggestions (Ctrl+K trigger) -->
+      <div class="hidden lg:flex flex-1 max-w-md mx-6">
+        <div class="relative w-full border border-slate-200/90 bg-slate-100/90 rounded-2xl transition-all duration-300 focus-within:border-brandBlue-600 focus-within:bg-white focus-within:ring-4 focus-within:ring-brandBlue-500/15 shadow-inner">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-slate-400 text-xs"></i>
+          <input type="text" id="header-search" onkeyup="handleQuickSearch(this.value)" placeholder="හොයන්න: 'AC කොළඹ', 'ප්ලම්බර් මහරගම', 'Electrician Kandy'..." class="w-full pl-11 pr-16 py-2.5 bg-transparent text-xs font-bold text-slate-900 focus:outline-none placeholder-slate-400">
+          <span class="absolute right-3 top-2 bg-white shadow-sm border border-slate-200 text-slate-500 text-[10px] font-extrabold px-2 py-0.5 rounded-lg">Ctrl K</span>
+        </div>
+      </div>
+
+      <!-- Action CTAs -->
+      <div class="flex items-center gap-2.5">
+        
+        <!-- Cost Estimator Calculator Button -->
+        <button onclick="openEstimatorModal()" class="hidden sm:flex items-center gap-1.5 text-slate-700 hover:text-brandBlue-700 font-black text-xs bg-slate-100 hover:bg-brandBlue-50 px-3.5 py-2.5 rounded-2xl border border-slate-200/80 transition shadow-sm hover:shadow">
+          <i class="fa-solid fa-calculator text-brandOrange-500"></i> 
+          <span id="txt-nav-calc">මිල ගණනය</span>
+        </button>
+
+        <!-- Post Free Job CTA (3D Orange Button) -->
+        <button onclick="openPostJobModal()" class="btn-3d btn-shine-sweep bg-gradient-to-r from-brandOrange-500 to-amber-500 text-slate-950 font-black px-4 sm:px-5 py-2.5 rounded-2xl text-xs flex items-center gap-2 border border-amber-300/60">
+          <i class="fa-solid fa-bolt text-xs animate-pulse text-slate-900"></i>
+          <span id="txt-nav-postjob">නොමිලේ වැඩක් දාන්න</span>
+        </button>
+
+        <!-- User Authentication Button -->
+        <div id="auth-header-container">
+          <button onclick="openAuthModal('signin')" class="bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black px-4 sm:px-5 py-2.5 rounded-2xl text-xs shadow-md transition flex items-center gap-2 group border border-brandBlue-700/50">
+            <i class="fa-regular fa-circle-user text-sm group-hover:scale-110 text-brandOrange-400 transition"></i>
+            <span id="txt-nav-signin">ඇතුළු වන්න / ලියාපදිංචි</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Category Filter Bar (8 High-Demand Pro Services) -->
+    <div class="border-t border-slate-200/60 bg-white/95">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex items-center gap-2 sm:gap-3 overflow-x-auto py-2.5 text-xs font-bold text-slate-600 whitespace-nowrap scrollbar-none">
+          <button onclick="filterCategory('all', this)" class="category-btn active bg-brandBlue-600 text-white px-3.5 py-1.5 rounded-xl shadow-md transition flex items-center gap-1.5">
+            <i class="fa-solid fa-layer-group"></i> <span id="cat-all">සියලු සේවාවන්</span>
+          </button>
+          <button onclick="filterCategory('ac', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-snowflake text-cyan-500"></i> <span id="cat-ac">AC රෙපයාර්</span>
+          </button>
+          <button onclick="filterCategory('plumbing', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-faucet-drip text-blue-500"></i> <span id="cat-plumbing">නල සහ ජල වැඩ</span>
+          </button>
+          <button onclick="filterCategory('electrical', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-bolt text-amber-500"></i> <span id="cat-electrical">විදුලි කාර්මික</span>
+          </button>
+          <button onclick="filterCategory('vehicle', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-car text-rose-500"></i> <span id="cat-vehicle">වාහන රෙපයාර්</span>
+          </button>
+          <button onclick="filterCategory('carpentry', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-hammer text-orange-500"></i> <span id="cat-carpentry">වඩු කාර්මික</span>
+          </button>
+          <button onclick="filterCategory('cctv', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-video text-emerald-500"></i> <span id="cat-cctv">CCTV & Computer</span>
+          </button>
+          <button onclick="filterCategory('painting', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-paint-roller text-purple-500"></i> <span id="cat-painting">තීන්ත & වහල</span>
+          </button>
+          <button onclick="filterCategory('masonry', this)" class="category-btn hover:text-brandBlue-600 hover:bg-slate-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 border border-transparent hover:border-slate-200">
+            <i class="fa-solid fa-trowel-bricks text-amber-700"></i> <span id="cat-masonry">මේසන් & ගොඩනැගිලි</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================================================================= -->
+  <!-- HERO SECTION WITH 3D AMBIENCE & PERSPECTIVE CARD -->
+  <!-- ================================================================= -->
+  <section class="relative bg-brandBlue-950 text-white py-16 md:py-24 overflow-hidden bg-dot-grid">
+    <!-- Particle Canvas -->
+    <canvas id="hero-particles" class="absolute inset-0 z-0 pointer-events-none opacity-60"></canvas>
+    
+    <!-- Ambient Glowing Orbs -->
+    <div class="absolute -top-40 -left-40 w-[500px] h-[500px] bg-brandOrange-500/20 rounded-full blur-[140px] pointer-events-none animate-pulse z-0"></div>
+    <div class="absolute top-10 right-0 w-[600px] h-[600px] bg-brandBlue-600/25 rounded-full blur-[160px] pointer-events-none z-0"></div>
+    <div class="absolute -bottom-20 left-1/3 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 grid lg:grid-cols-12 gap-12 items-center reveal-elem active">
+      
+      <!-- Hero Left Text & Search Engine -->
+      <div class="lg:col-span-7 space-y-7 text-center lg:text-left">
+        
+        <!-- Live Verified Badge -->
+        <div class="inline-flex items-center gap-2.5 bg-slate-900/80 backdrop-blur-md px-4 py-2 rounded-full text-xs font-black text-brandOrange-400 border border-slate-700/80 shadow-inner">
+          <i class="fa-solid fa-shield-halved text-emerald-400 text-sm animate-pulse"></i>
+          <span id="txt-hero-badge">ශ්‍රී ලංකාවේ අංක 1 පරීක්ෂිත බාස්ලාගේ Platform එක</span>
+        </div>
+
+        <!-- Main Punchy Heading -->
+        <h1 class="text-3xl sm:text-5xl lg:text-5xl font-black tracking-tight leading-[1.25]">
+          <span id="txt-hero-title-1">ඔබට ආසන්නයෙන්ම විශ්වාසනීය</span> <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-brandOrange-400 to-amber-100" id="txt-hero-title-2">
+            බාස් කෙනෙක් මිනිත්තු කිහිපයකින් හොයාගන්න!
+          </span>
+        </h1>
+
+        <!-- Subtitle Paragraph -->
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium" id="txt-hero-desc">
+          වෙනත් අයගෙන් දුරකථන අංක ඉල්ල ඉල්ලා රස්තියාදු වෙන්න එපා. දිවයිනේ ප්‍රමුඛතම ප්ලම්බර්ලා, ඉලෙක්ට්‍රීෂියන්ලා, AC සහ වාහන කාර්මිකයින් සෘජුවම සම්බන්ධ කරගන්න!
+        </p>
+
+        <!-- 3D Interactive Search Console -->
+        <div class="glass-card-accent p-3 rounded-3xl border border-white/20 text-slate-800 space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-2 max-w-2xl mx-auto lg:mx-0 shadow-2xl">
+          
+          <!-- District Selector Dropdown (Sri Lanka Districts) -->
+          <div class="flex items-center gap-2 px-3 py-3 bg-white rounded-2xl sm:w-2/5 shadow-inner">
+            <i class="fa-solid fa-location-dot text-brandBlue-600 text-base"></i>
+            <select id="hero-district-select" class="bg-transparent text-xs font-bold text-slate-900 focus:outline-none w-full cursor-pointer">
+              <option value="all">සියලු දිස්ත්‍රික්ක (All Districts)</option>
+              <option value="colombo" selected>කොළඹ (Colombo)</option>
+              <option value="gampaha">ගම්පහ (Gampaha)</option>
+              <option value="kalutara">කළුතර (Kalutara)</option>
+              <option value="kandy">මහනුවර (Kandy)</option>
+              <option value="galle">ගාල්ල (Galle)</option>
+              <option value="matara">මාතර (Matara)</option>
+              <option value="kurunegala">කුරුණෑගල (Kurunegala)</option>
+              <option value="jaffna">යාපනය (Jaffna / யாழ்ப்பாணம்)</option>
+              <option value="batticaloa">මඩකලපුව (Batticaloa / மட்டக்களப்பு)</option>
+              <option value="anuradhapura">අනුරාධපුරය (Anuradhapura)</option>
+            </select>
+          </div>
+
+          <!-- Service Query Input -->
+          <div class="flex items-center gap-2 px-4 py-3 bg-white rounded-2xl flex-1 shadow-inner">
+            <i class="fa-solid fa-screwdriver-wrench text-slate-400 text-sm"></i>
+            <input type="text" id="hero-search-input" placeholder="ඔබට අවශ්‍ය සේවාව කුමක්ද? (උදා: AC, Wiring, Leak)" class="w-full text-xs font-bold focus:outline-none bg-transparent placeholder-slate-400 text-slate-900">
+          </div>
+
+          <!-- Search Trigger Button -->
+          <div class="magnetic-wrap w-full sm:w-auto">
+            <button onclick="executeHeroSearch()" class="magnetic-btn w-full btn-3d btn-shine-sweep bg-gradient-to-r from-brandOrange-500 to-amber-500 text-slate-950 font-black px-7 py-3.5 rounded-2xl text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 shrink-0 border border-amber-300/40">
+              <span id="txt-hero-btn">බාස් කෙනෙක් හොයන්න</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Tags -->
+        <div class="flex items-center justify-center lg:justify-start gap-2 flex-wrap text-xs text-slate-300 font-semibold pt-1">
+          <span class="text-slate-400 text-[11px]" id="txt-popular-label">ජනප්‍රිය සේවා:</span>
+          <button onclick="quickFilter('AC Repair')" class="bg-slate-900/60 hover:bg-slate-800 hover:text-brandOrange-400 px-3 py-1 rounded-xl border border-slate-700/60 transition">AC Repair</button>
+          <button onclick="quickFilter('Plumbing')" class="bg-slate-900/60 hover:bg-slate-800 hover:text-brandOrange-400 px-3 py-1 rounded-xl border border-slate-700/60 transition">Pipe Leak</button>
+          <button onclick="quickFilter('Electrical')" class="bg-slate-900/60 hover:bg-slate-800 hover:text-brandOrange-400 px-3 py-1 rounded-xl border border-slate-700/60 transition">Wiring</button>
+          <button onclick="quickFilter('Auto')" class="bg-slate-900/60 hover:bg-slate-800 hover:text-brandOrange-400 px-3 py-1 rounded-xl border border-slate-700/60 transition">Auto Scan</button>
+          <button onclick="quickFilter('CCTV')" class="bg-slate-900/60 hover:bg-slate-800 hover:text-brandOrange-400 px-3 py-1 rounded-xl border border-slate-700/60 transition">CCTV Setup</button>
+        </div>
+
+        <!-- Stats Counter Bar -->
+        <div class="pt-4 flex items-center justify-center lg:justify-start gap-6 sm:gap-10 text-center lg:text-left border-t border-slate-800/80 relative z-10" id="stats-counter-section">
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white"><span class="counter-up" data-target="48200">0</span>+</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5" id="txt-stat-jobs">සම්පූර්ණ කළ වැඩ</div>
+          </div>
+          <div class="w-px h-8 bg-slate-800"></div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white"><span class="counter-up" data-target="1480">0</span>+</div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5" id="txt-stat-pros">ලියාපදිංචි බාස්ලා</div>
+          </div>
+          <div class="w-px h-8 bg-slate-800"></div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-amber-400 flex items-center justify-center lg:justify-start gap-1">
+              <span class="counter-up" data-target="4.9" data-decimals="1">0.0</span> <i class="fa-solid fa-star text-sm"></i>
+            </div>
+            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5" id="txt-stat-rating">පාරිභෝගික තෘප්තිය</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hero Right 3D Visual Cards Showcase -->
+      <div class="lg:col-span-5 relative hidden md:flex justify-center items-center perspective-container">
+        <div id="hero-3d-card" class="relative w-full max-w-sm z-20 tilt-card animate-float-slow">
+          
+          <!-- Outer Neon Border Glow -->
+          <div class="absolute -inset-1.5 bg-gradient-to-tr from-brandBlue-500 via-brandOrange-500 to-amber-300 rounded-[3rem] blur-xl opacity-40"></div>
+          
+          <!-- Card Body -->
+          <div class="relative bg-slate-900 rounded-[2.8rem] p-3.5 border border-slate-700/90 shadow-3d overflow-hidden">
+            
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" alt="Master Sri Lankan Technician" class="rounded-[2.4rem] w-full h-[430px] object-cover opacity-90 shadow-inner">
+            
+            <!-- Gradient Overlay inside image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent rounded-[2.8rem]"></div>
+
+            <!-- Top Floating Badge (Police Checked) -->
+            <div class="absolute top-7 right-7 glass-card-dark px-3 py-1.5 rounded-full border border-emerald-400/40 flex items-center gap-1.5 text-[10px] font-black text-emerald-400 shadow-lg tilt-element-depth">
+              <i class="fa-solid fa-id-card-clip"></i>
+              <span>Police Checked & NIC Verified</span>
+            </div>
+
+            <!-- Bottom Floating 3D Badge (Local Pro Rating) -->
+            <div class="absolute bottom-6 left-6 right-6 glass-card-dark p-4 rounded-2xl shadow-2xl border border-white/15 flex items-center justify-between gap-3.5 tilt-element-3d animate-float-medium">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 text-white flex items-center justify-center text-xl shadow-lg">
+                  <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] text-slate-300 font-bold" id="txt-badge-1">ප්‍රාදේශීය පරීක්ෂිත බාස්ලා</div>
+                  <div class="text-xs font-black text-white" id="txt-badge-2">Verified & Recommended ✅</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-amber-400 font-black text-sm">4.9 ★</div>
+                <div class="text-[9px] text-slate-400">140+ Reviews</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- WHY CHOOSE BAAS.LK (3D TRUST PILLARS) -->
+  <!-- ================================================================= -->
+  <section class="py-14 bg-white border-b border-slate-200/80 reveal-elem">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <!-- Pillar 1 -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:border-brandBlue-500/40 hover:bg-brandBlue-50/40 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-brandBlue-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-brandBlue-600 group-hover:text-white transition">
+            <i class="fa-solid fa-certificate"></i>
+          </div>
+          <h3 class="text-sm font-black text-slate-900" id="feat-1-title">NIC සහ Police Report පරීක්ෂිතයි</h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-medium" id="feat-1-desc">අපගේ ජාලයේ සෑම කාර්මික ශිල්පියෙකුගේම අනන්‍යතාවය සහ විශ්වාසනීයත්වය පරීක්ෂා කර ඇත.</p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:border-brandOrange-500/40 hover:bg-amber-50/40 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-brandOrange-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-brandOrange-500 group-hover:text-white transition">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <h3 class="text-sm font-black text-slate-900" id="feat-2-title">සාධාරණ සහ විනිවිද මිල ගණන්</h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-medium" id="feat-2-desc">වැඩේ පටන් ගන්න කලින් පැහැදිලි මිල ගණන්. අමතර සැඟවුණු ගාස්තු නොමැත.</p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:border-emerald-500/40 hover:bg-emerald-50/40 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition">
+            <i class="fa-solid fa-stopwatch-20"></i>
+          </div>
+          <h3 class="text-sm font-black text-slate-900" id="feat-3-title">මිනිත්තු 30න් ස්ථානයට</h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-medium" id="feat-3-desc">ඔබේම නගරයේ සහ ගමේ සිටින බාස්ලා ක්ෂණිකව ඔබේ නිවසටම කැඳවා ගන්න.</p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/70 hover:border-purple-500/40 hover:bg-purple-50/40 transition-all duration-300 group">
+          <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition">
+            <i class="fa-solid fa-shield-check"></i>
+          </div>
+          <h3 class="text-sm font-black text-slate-900" id="feat-4-title">සේවා වගකීම් සහතිකය</h3>
+          <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-medium" id="feat-4-desc">සිදු කරන කාර්මික අලුත්වැඩියාවන් සඳහා දින 30ක පාරිභෝගික තෘප්තිමත් වගකීමක්.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- DIRECTORY / SERVICES SECTION WITH 3D TILT CARDS -->
+  <!-- ================================================================= -->
+  <section id="services-section" class="py-20 bg-slate-100/70 reveal-elem">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-brandOrange-600 font-black text-[11px] uppercase tracking-widest" id="txt-tag-verified">පරීක්ෂිත නාමාවලිය</span>
+          <h2 class="text-3xl font-black text-slate-950 mt-1 tracking-tight" id="txt-services-heading">ඉහළම ඇගයීම් ලත් ප්‍රාදේශීය බාස්ලා</h2>
+          <p class="text-slate-500 text-xs sm:text-sm mt-1 font-medium" id="txt-services-sub">ඔබට ආසන්නතම කාර්මික ශිල්පීන් සෘජුවම සම්බන්ධ කරගන්න. සාධාරණ ගාස්තු සහ විශ්වාසනීය සේවය.</p>
+        </div>
+        
+        <!-- Sorting & Results Filter -->
+        <div class="flex items-center gap-3">
+          <span class="text-xs font-bold text-slate-500 hidden sm:inline" id="txt-sort-label">පිළිවෙල:</span>
+          <select id="sort-select" onchange="sortCards(this.value)" class="bg-white border border-slate-200 text-xs font-bold rounded-xl px-3.5 py-2.5 text-slate-800 focus:outline-none shadow-sm cursor-pointer hover:border-brandBlue-500 transition">
+            <option value="rating">ඉහළම ඇගයීම් (Highest Rated ★)</option>
+            <option value="jobs">වැඩිපුරම වැඩ කළ අය (Most Jobs Done)</option>
+            <option value="price-low">අවම ගාස්තුව (Lowest Price First)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Services Grid (Dynamic 3D Cards) -->
+      <div id="services-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 perspective-container">
+        
+        <!-- Service Card 1: AC Specialist -->
+        <div class="service-card ac bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="ac" data-district="colombo" data-price="2500" data-rating="4.9" data-jobs="142">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=600" alt="AC Repair Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-snowflake text-cyan-500"></i> AC Repair
+              </div>
+
+              <div class="absolute top-3 right-3 bg-emerald-500 text-white text-[9px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow">
+                Available Now
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 2,500<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Chaminda Perera">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      චමින්ද පෙරේරා
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs" title="Verified Pro"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> කොළඹ 03, මහරගම</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.9</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">Inverter AC කෙමිකල් සර්විස් සහ ගෑස් ගැසීම</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">සම්පූර්ණ කෙමිකල් වොෂ්, පීඩන පරීක්ෂාව සහ දින 90ක කාර්මික වගකීමක් සහිතව.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('චමින්ද පෙරේරා', 'AC Chemical Wash', '2500')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('චමින්ද පෙරේරා', '0771234567')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('චමින්ද පෙරේරා', 'AC සහ ශීතකරණ පිළිබඳ ප්‍රවීණ බාස්', '4.9', '142', 'කොළඹ 03, මහරගම', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200', 'AC Repair & Service', '8 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 2: Plumbing Specialist -->
+        <div class="service-card plumbing bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="plumbing" data-district="colombo" data-price="1800" data-rating="4.8" data-jobs="98">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&q=80&w=600" alt="Plumbing Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-faucet-drip text-blue-500"></i> Plumbing
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 1,800<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Nimal Silva">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      නිමල් සිල්වා
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> නුගේගොඩ, කෝට්ටේ</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.8</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">ජල බට කාන්දු සහ වතුර මෝටර් සවිකිරීම</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">නානකාමර බට පද්ධති, වතුර ටැංකි සහ ප්‍රෙෂර් මෝටර් අලුත්වැඩියාව.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('නිමල් සිල්වා', 'Pipe Leak Repair', '1800')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('නිමල් සිල්වා', '0712223344')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('නිමල් සිල්වා', 'ජල නල පිළිබඳ ප්‍රවීණ බාස්', '4.8', '98', 'නුගේගොඩ, කෝට්ටේ', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200', 'Plumbing & Pipe Fitting', '6 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 3: Electrical Specialist -->
+        <div class="service-card electrical bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="electrical" data-district="kandy" data-price="2000" data-rating="5.0" data-jobs="210">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600" alt="Electrical Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-bolt text-amber-500"></i> Electrical
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 2,000<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Kassapa Bandara">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      කස්සප බණ්ඩාර
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> මහනුවර නගරය</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">5.0</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">නිවාස සම්පූර්ණ වයරින් සහ DB බෝඩ් සෑදීම</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">ට්‍රිප් ස්විච් දෝෂ නිවැරදි කිරීම, සෝලා පැනල් වයරින් සහ LED ආලෝකකරණය.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('කස්සප බණ්ඩාර', 'House Wiring', '2000')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('කස්සප බණ්ඩාර', '0789998877')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('කස්සප බණ්ඩාර', 'සහතික ලත් විදුලි කාර්මික ශිල්පී', '5.0', '210', 'මහනුවර නගරය', 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200', 'Electrical & Wiring', '10 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 4: Auto Mechanics -->
+        <div class="service-card vehicle bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="vehicle" data-district="galle" data-price="3000" data-rating="4.9" data-jobs="175">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&q=80&w=600" alt="Vehicle Mechanics Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-car text-rose-500"></i> Vehicle Care
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 3,000<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Ruwan Fernando">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      රුවන් ප්‍රනාන්දු
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> ගාල්ල කොටුව, මාතර</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.9</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">හයිබ්‍රිඩ් සහ පෙට්‍රල් වාහන ස්ථානීය ස්කෑන් රෙපයාර්</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">පැමිණ කරනු ලබන පරිගණක පරීක්ෂාවන්, බැටරි ජම්ප්ස්ටාර්ට් සහ බ්‍රේක් අලුත්වැඩියාව.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('රුවන් ප්‍රනාන්දු', 'Hybrid Vehicle Repair', '3000')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('රුවන් ප්‍රනාන්දු', '0751112233')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('රුවන් ප්‍රනාන්දු', 'වාහන කාර්මික ශිල්පී', '4.9', '175', 'ගාල්ල කොටුව', 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=200', 'Hybrid Auto Repairs', '7 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 5: CCTV & Smart Home -->
+        <div class="service-card cctv bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="cctv" data-district="gampaha" data-price="2200" data-rating="4.9" data-jobs="115">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=600" alt="CCTV Camera Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-video text-emerald-500"></i> CCTV & Tech
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 2,200<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Suresh Rajapaksa">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      සුරේෂ් රාජපක්ෂ
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> කඩවත, ගම්පහ</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.9</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">CCTV කැමරා පද්ධති සහ Wi-Fi ජාල සවිකිරීම</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">Hikvision/Dahua කැමරා සැකසුම්, දුරකථනයට Live View සම්බන්ධ කිරීම.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('සුරේෂ් රාජපක්ෂ', 'CCTV System Setup', '2200')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('සුරේෂ් රාජපක්ෂ', '0763334455')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('සුරේෂ් රාජපක්ෂ', 'CCTV සහ Smart Security විශේෂඥ', '4.9', '115', 'කඩවත, ගම්පහ', 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=200', 'CCTV & Networking', '5 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 6: Carpentry & Woodwork -->
+        <div class="service-card carpentry bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="carpentry" data-district="kurunegala" data-price="2000" data-rating="4.7" data-jobs="89">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=600" alt="Carpentry Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-hammer text-orange-500"></i> Carpentry
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 2,000<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Ananda Kumara">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      ආනන්ද කුමාර
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> කුරුණෑගල නගරය</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.7</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">දොර ජනෙල්, පැන්ට්‍රි කබඩ් සහ වඩු අලුත්වැඩියා</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">නවීන පැන්ට්‍රි කබඩ්, ලොක් සවිකිරීම් සහ ලී පොලිෂ් කිරීම්.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('ආනන්ද කුමාර', 'Pantry & Door Repair', '2000')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('ආනන්ද කුමාර', '0714445566')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('ආනන්ද කුමාර', 'ප්‍රවීණ වඩු කාර්මික ශිල්පී', '4.7', '89', 'කුරුණෑගල නගරය', 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200', 'Carpentry & Woodcraft', '12 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 7: Painting & Roofing -->
+        <div class="service-card painting bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="painting" data-district="jaffna" data-price="1700" data-rating="4.9" data-jobs="134">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600" alt="Painting Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-paint-roller text-purple-500"></i> Painting & Roof
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 1,700<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="K. Sivakumar">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      කේ. සිවකුමාර් (K. Sivakumar)
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> යාපනය (Jaffna), නල්ලූර්</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.9</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">ගෙවල් තීන්ත ආලේපනය සහ වෝටර්පෲෆ් (Waterproofing)</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">Weathercoat තීන්ත, බිත්ති ඉරිතැලීම් වැසීම සහ වහල ලීක් සීල් කිරීම.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('කේ. සිවකුමාර්', 'House Painting & Waterproofing', '1700')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('කේ. සිවකුමාර්', '0778889900')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('කේ. සිවකුමාර්', 'ප්‍රවීණ තීන්ත හා වෝටර්පෲෆින් ශිල්පී', '4.9', '134', 'යාපනය, නල්ලූර්', 'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=200', 'Painting & Waterproofing', '9 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 8: Masonry & Construction -->
+        <div class="service-card masonry bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg shadow-slate-200/50 tilt-card flex flex-col justify-between group" data-category="masonry" data-district="kalutara" data-price="2200" data-rating="4.8" data-jobs="168">
+          <div>
+            <div class="relative h-48 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" alt="Masonry Pro" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-in-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+              
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-brandBlue-800 text-[10px] font-black px-3 py-1.5 rounded-lg uppercase tracking-wide shadow-md flex items-center gap-1">
+                <i class="fa-solid fa-trowel-bricks text-amber-700"></i> Masonry
+              </div>
+
+              <div class="absolute bottom-3 left-4 text-white">
+                <span class="text-[10px] text-slate-300 font-bold block mb-0.5">පැයකට අවම ගාස්තුව</span>
+                <span class="text-xl font-black text-white drop-shadow-md">රු. 2,200<span class="text-[10px] font-normal text-slate-300">/පැය</span></span>
+              </div>
+            </div>
+
+            <div class="p-5">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-3">
+                  <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-brandOrange-500 shadow-md" alt="Jayantha Wijesinghe">
+                    <div class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-black text-slate-900 flex items-center gap-1">
+                      ජයන්ත විජේසිංහ
+                      <i class="fa-solid fa-circle-check text-brandBlue-600 text-xs"></i>
+                    </h4>
+                    <p class="text-[10px] text-slate-500 font-bold mt-0.5"><i class="fa-solid fa-location-dot text-slate-400"></i> පානදුර, කළුතර</p>
+                  </div>
+                </div>
+                <div class="bg-amber-50 px-2 py-1 rounded-xl flex items-center gap-1 border border-amber-200">
+                  <i class="fa-solid fa-star text-amber-500 text-[10px]"></i>
+                  <span class="text-[10px] font-black text-amber-700">4.8</span>
+                </div>
+              </div>
+
+              <h3 class="font-black text-slate-900 text-sm group-hover:text-brandBlue-600 transition line-clamp-1 mt-1">ටයිල් ඇල්ලීම, බිත්ති බැඳීම සහ ප්ලාස්ටර් වැඩ</h3>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed font-medium">නානකාමර ටයිල්, ගෙමිදුල ඉන්ටර්ලොක් ඇල්ලීම සහ කොන්ක්‍රීට් වැඩ.</p>
+            </div>
+          </div>
+
+          <div class="p-4 pt-0 mt-auto space-y-2">
+            <div class="flex gap-2">
+              <button onclick="openBookingModal('ජයන්ත විජේසිංහ', 'Tile Laying & Masonry', '2200')" class="flex-1 bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-calendar-check text-[11px] text-brandOrange-400"></i> වැඩේ බාරදෙන්න
+              </button>
+              <button onclick="openDirectConnect('ජයන්ත විජේසිංහ', '0705556677')" class="w-11 h-10 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition font-bold border border-emerald-200" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+              </button>
+            </div>
+            <button onclick="openProfileModal('ජයන්ත විජේසිංහ', 'ප්‍රවීණ මේසන් බාස්', '4.8', '168', 'පානදුර, කළුතර', 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200', 'Tile & Masonry Works', '14 Years')" class="w-full text-center text-[11px] font-black text-slate-400 hover:text-brandBlue-600 transition py-1">
+              සම්පූර්ණ විස්තර සහ Ratings බලන්න →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No Results State -->
+      <div id="no-results" class="hidden text-center py-16">
+        <div class="w-16 h-16 bg-slate-200 text-slate-500 rounded-3xl flex items-center justify-center text-2xl mx-auto mb-4">
+          <i class="fa-solid fa-user-slash"></i>
+        </div>
+        <h3 class="text-base font-black text-slate-800" id="txt-no-results-title">කිසිදු බාස් කෙනෙකු හමු නොවීය</h3>
+        <p class="text-xs text-slate-500 mt-1" id="txt-no-results-sub">කරුණාකර වෙනත් දිස්ත්‍රික්කයක් හෝ සේවා නාමයක් තෝරා නැවත උත්සාහ කරන්න.</p>
+        <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-brandBlue-600 text-white text-xs font-black rounded-xl hover:bg-brandBlue-700 transition">
+          සියල්ල පෙන්වන්න (Reset)
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- REAL-TIME 3D COST ESTIMATOR SECTION -->
+  <!-- ================================================================= -->
+  <section class="py-20 bg-brandBlue-950 text-white relative overflow-hidden bg-dot-grid reveal-elem">
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-brandOrange-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-brandBlue-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+      
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Estimator Left Info -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-amber-400/15 text-amber-300 px-3.5 py-1.5 rounded-full text-xs font-black border border-amber-400/30">
+            <i class="fa-solid fa-calculator"></i>
+            <span id="txt-estimator-badge">ස්වයංක්‍රීය මිල ගණනය කිරීම</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight leading-tight" id="txt-estimator-head">
+            ඔබේ වැඩේට යන ගාස්තුව <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-brandOrange-400 to-amber-200">කලින්ම බලාගන්න!</span>
+          </h2>
+
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium" id="txt-estimator-desc">
+            බාස් කෙනෙක් පැමිණීමට පෙර ඔබේ අවශ්‍යතාවය අනුව ආසන්නතම සාධාරණ සේවා ගාස්තුව නිවැරදිව ගණනය කරගත හැක.
+          </p>
+
+          <div class="space-y-3 pt-2">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="text-xs text-slate-200 font-bold" id="txt-est-feat-1">ශ්‍රී ලංකාවේ ප්‍රමිතීන්ට අනුව මිල නිර්ණය</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="text-xs text-slate-200 font-bold" id="txt-est-feat-2">අමතර කිසිදු සැඟවුණු සේවා ගාස්තුවක් නැත</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <span class="text-xs text-slate-200 font-bold" id="txt-est-feat-3">හදිසි පැමිණීම් (Emergency) සඳහා විශේෂ සහාය</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estimator Interactive Calculator Card -->
+        <div class="lg:col-span-7">
+          <div class="glass-card-dark p-6 sm:p-8 rounded-[2.5rem] shadow-2xl border border-white/15 relative">
+            
+            <h3 class="text-lg font-black text-white mb-6 flex items-center gap-2" id="txt-calc-box-title">
+              <i class="fa-solid fa-sliders text-brandOrange-400"></i>
+              <span>ක්ෂණික මිල ගණනය යන්ත්‍රය</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              
+              <!-- Service Category -->
+              <div>
+                <label class="block text-[10px] font-black text-slate-300 uppercase tracking-wider mb-1.5" id="lbl-calc-cat">සේවාව තෝරන්න (Service Type)</label>
+                <select id="calc-service" onchange="recalculateCost()" class="w-full bg-slate-900 border border-slate-700 text-xs font-bold text-white rounded-xl px-4 py-3 focus:outline-none focus:border-brandOrange-400">
+                  <option value="ac">AC සර්විස් & රෙපයාර් (රු. 2,500/hr)</option>
+                  <option value="plumbing">ජල සහ නල අලුත්වැඩියාව (රු. 1,800/hr)</option>
+                  <option value="electrical">විදුලි වයරින් & DB වැඩ (රු. 2,000/hr)</option>
+                  <option value="vehicle">වාහන ස්කෑන් සහ අලුත්වැඩියා (රු. 3,000/hr)</option>
+                  <option value="cctv">CCTV කැමරා සවිකිරීම (රු. 2,200/hr)</option>
+                  <option value="carpentry">වඩු සහ පැන්ට්‍රි වැඩ (රු. 2,000/hr)</option>
+                </select>
+              </div>
+
+              <!-- Estimated Hours -->
+              <div>
+                <label class="block text-[10px] font-black text-slate-300 uppercase tracking-wider mb-1.5" id="lbl-calc-hours">ඇස්තමේන්තු පැය ගණන (Hours)</label>
+                <select id="calc-hours" onchange="recalculateCost()" class="w-full bg-slate-900 border border-slate-700 text-xs font-bold text-white rounded-xl px-4 py-3 focus:outline-none focus:border-brandOrange-400">
+                  <option value="1">පැය 1 (සුළු රෙපයාර්)</option>
+                  <option value="2" selected>පැය 2 (සාමාන්‍ය වැඩක්)</option>
+                  <option value="4">පැය 4 (අර්ධ දින සේවාව)</option>
+                  <option value="8">පැය 8 (සම්පූර්ණ දින සේවාව)</option>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Urgent Emergency Toggle -->
+            <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-900/90 border border-slate-800 mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-base">
+                  <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-black text-white" id="txt-calc-urgent-title">හදිසි පැමිණීමක්ද? (Emergency SOS Dispatch)</div>
+                  <div class="text-[10px] text-slate-400 font-medium" id="txt-calc-urgent-sub">මිනිත්තු 30 තුළ ක්ෂණිකව පැමිණීමට +රු. 1,000</div>
+                </div>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="calc-emergency" onchange="recalculateCost()" class="sr-only peer">
+                <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brandOrange-500"></div>
+              </label>
+            </div>
+
+            <!-- Price Breakdown Result Banner -->
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-brandBlue-900 to-slate-900 border border-amber-400/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block" id="txt-calc-est-label">ඇස්තමේන්තු මුළු ගාස්තුව:</span>
+                <div class="text-3xl font-black text-amber-400 tracking-tight" id="calc-total-display">රු. 5,000 - 6,000</div>
+                <div class="text-[10px] text-slate-400 mt-0.5" id="txt-calc-parts-note">*අමතර කොටස් සඳහා ගාස්තු ඇතුළත් නොවේ.</div>
+              </div>
+              <button onclick="openPostJobWithCost()" class="btn-3d btn-shine-sweep bg-gradient-to-r from-brandOrange-500 to-amber-500 text-slate-950 font-black px-6 py-3 rounded-xl text-xs flex items-center gap-2">
+                <span id="txt-calc-action-btn">මෙම ගාස්තුවට වැඩේ බාරදෙන්න</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- CUSTOMER REVIEWS & TESTIMONIALS (SRI LANKAN STORIES) -->
+  <!-- ================================================================= -->
+  <section class="py-20 bg-white reveal-elem">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-brandOrange-600 font-black text-[11px] uppercase tracking-widest" id="txt-tag-reviews">පාරිභෝගික අත්දැකීම්</span>
+        <h2 class="text-3xl font-black text-slate-950 mt-1 tracking-tight" id="txt-reviews-heading">ලංකාව පුරා පාරිභෝගිකයින් පවසන දේ</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-2 font-medium" id="txt-reviews-sub">දිනපතා දහස් ගණනක් දෙනා Baas.lk හරහා සිය නිවෙස් සහ වාහන වැඩ සතුටින් විසඳා ගනී.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Review 1 -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-md space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1 text-amber-500 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <span class="text-[10px] font-bold text-slate-400">මහරගම | දින 2කට පෙර</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">
+            "රෑ 8ට මගේ ගෙදර ප්‍රධාන වතුර බටයක් කැඩිලා ලීක් වුණා. SOS එකෙන් විනාඩි 20න් ප්ලම්බර් නිමල් මහතා ආවා. සාධාරණ ගාස්තුවක් අරන් වැඩේ ලස්සනට කරලා දුන්නා. සුපිරි සේවාවක්!"
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-slate-200/80">
+            <div class="w-9 h-9 rounded-full bg-brandBlue-600 text-white flex items-center justify-center font-black text-xs">ඩී</div>
+            <div>
+              <h5 class="text-xs font-black text-slate-900">දිනේෂ් මෙන්ඩිස්</h5>
+              <p class="text-[10px] text-slate-500 font-bold">කොළඹ දිස්ත්‍රික්කය</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-md space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1 text-amber-500 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <span class="text-[10px] font-bold text-slate-400">Kandy | 1 week ago</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">
+            "Best technician platform in Sri Lanka. Fixed my entire house DB board wiring issue within hours. Professional, polite, and no hidden surprises on pricing."
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-slate-200/80">
+            <div class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-black text-xs">S</div>
+            <div>
+              <h5 class="text-xs font-black text-slate-900">Shanuka Weerasinghe</h5>
+              <p class="text-[10px] text-slate-500 font-bold">Kandy District</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 (Tamil Testimonial) -->
+        <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 shadow-md space-y-4">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1 text-amber-500 text-xs">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <span class="text-[10px] font-bold text-slate-400">யாழ்ப்பாணம் | 3 நாட்களுக்கு முன்</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed font-medium italic">
+            "எங்கள் வீட்டின் ஏசி இயந்திரம் மிக விரைவாக பழுதுபார்க்கப்பட்டது. கைவினைஞர் மிக நேர்மையாகவும் மரியாதையாகவும் நடந்து கொண்டார். மிகச் சிறந்த சேவை!"
+          </p>
+          <div class="flex items-center gap-3 pt-2 border-t border-slate-200/80">
+            <div class="w-9 h-9 rounded-full bg-purple-600 text-white flex items-center justify-center font-black text-xs">வி</div>
+            <div>
+              <h5 class="text-xs font-black text-slate-900">விஜயரத்னம் (Vijayaratnam)</h5>
+              <p class="text-[10px] text-slate-500 font-bold">யாழ்ப்பாணம் (Jaffna)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================= -->
+  <!-- FOOTER -->
+  <!-- ================================================================= -->
+  <footer class="bg-brandBlue-950 text-slate-400 text-xs py-16 border-t-4 border-brandOrange-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      
+      <!-- Brand & Mission -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-brandBlue-600 rounded-2xl flex items-center justify-center text-white shadow-lg">
+            <i class="fa-solid fa-house-wrench text-brandOrange-400 text-lg"></i>
+          </div>
+          <span class="text-2xl font-black text-white">Baas<span class="text-brandOrange-500">.lk</span></span>
+        </div>
+        <p class="text-slate-400 text-xs leading-relaxed font-medium" id="txt-footer-about">
+          ශ්‍රී ලංකාවේ නිවාස, කාර්යාල සහ වාහන අලුත්වැඩියා සඳහා පරීක්ෂිත ප්‍රාදේශීය බාස්ලා සෘජුවම සම්බන්ධ කරන අංක 1 පද්ධතිය.
+        </p>
+        <div class="pt-2 text-slate-300 font-bold">
+          <i class="fa-solid fa-headset text-brandOrange-400 mr-1.5"></i> 24/7 Helpline: <strong>011 234 5678</strong>
+        </div>
+      </div>
+
+      <!-- Services Links -->
+      <div>
+        <h4 class="text-white font-black text-xs uppercase tracking-wider mb-4" id="txt-footer-services">ප්‍රධාන සේවාවන්</h4>
+        <ul class="space-y-2.5 font-medium">
+          <li><a href="javascript:void(0)" onclick="quickFilter('AC')" class="hover:text-brandOrange-400 transition">AC අලුත්වැඩියාව (AC Repair)</a></li>
+          <li><a href="javascript:void(0)" onclick="quickFilter('Plumbing')" class="hover:text-brandOrange-400 transition">ජල නල රෙපයාර් (Plumbing)</a></li>
+          <li><a href="javascript:void(0)" onclick="quickFilter('Wiring')" class="hover:text-brandOrange-400 transition">විදුලි වයරින් වැඩ (Electrical)</a></li>
+          <li><a href="javascript:void(0)" onclick="quickFilter('Auto')" class="hover:text-brandOrange-400 transition">වාහන කාර්මික (Auto Care)</a></li>
+          <li><a href="javascript:void(0)" onclick="quickFilter('CCTV')" class="hover:text-brandOrange-400 transition">CCTV & Security</a></li>
+        </ul>
+      </div>
+
+      <!-- Covered Districts -->
+      <div>
+        <h4 class="text-white font-black text-xs uppercase tracking-wider mb-4" id="txt-footer-districts">ආවරණය වන දිස්ත්‍රික්ක</h4>
+        <ul class="space-y-2.5 font-medium">
+          <li><a href="javascript:void(0)" onclick="filterDistrict('colombo')" class="hover:text-brandOrange-400 transition">කොළඹ (Colombo)</a></li>
+          <li><a href="javascript:void(0)" onclick="filterDistrict('gampaha')" class="hover:text-brandOrange-400 transition">ගම්පහ (Gampaha)</a></li>
+          <li><a href="javascript:void(0)" onclick="filterDistrict('kandy')" class="hover:text-brandOrange-400 transition">මහනුවර (Kandy)</a></li>
+          <li><a href="javascript:void(0)" onclick="filterDistrict('galle')" class="hover:text-brandOrange-400 transition">ගාල්ල සහ දකුණ (Galle & South)</a></li>
+          <li><a href="javascript:void(0)" onclick="filterDistrict('jaffna')" class="hover:text-brandOrange-400 transition">යාපනය (Jaffna / யாழ்ப்பாணம்)</a></li>
+        </ul>
+      </div>
+
+      <!-- Trust & Legal -->
+      <div>
+        <h4 class="text-white font-black text-xs uppercase tracking-wider mb-4" id="txt-footer-trust">ආරක්ෂාව සහ සහාය</h4>
+        <ul class="space-y-2.5 font-medium">
+          <li><a href="javascript:void(0)" onclick="showToast('ප්‍රාදේශීය සේවා සහතිකය සක්‍රියයි', 'info')" class="hover:text-brandOrange-400 transition">ප්‍රාදේශීය සේවා සහතිකය</a></li>
+          <li><a href="javascript:void(0)" onclick="showToast('දින 30ක සේවා ගුණාත්මක වගකීමක් පවතී', 'info')" class="hover:text-brandOrange-400 transition">සේවා ගුණාත්මක වගකීම</a></li>
+          <li><a href="javascript:void(0)" onclick="openSosModal()" class="hover:text-rose-400 transition text-rose-400 font-bold">හදිසි අනතුරු & SOS සේවාව</a></li>
+          <li><a href="javascript:void(0)" onclick="showToast('රහස්‍යතා ප්‍රතිපත්තිය තහවුරු කර ඇත', 'info')" class="hover:text-brandOrange-400 transition">කොන්දේසි සහ රහස්‍යතාවය</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Sub-footer copyright -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-bold text-slate-500">
+      <div>© 2026 Baas.lk Sri Lanka. සියලුම හිමිකම් ඇවිරිණි (All Rights Reserved).</div>
+      <div class="flex items-center gap-4 text-base">
+        <a href="#" class="hover:text-brandOrange-400 transition"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="hover:text-brandOrange-400 transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-brandOrange-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#" class="hover:text-brandOrange-400 transition"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 1: ENHANCED AUTH MODAL (SIGN IN / SIGN UP) -->
+  <!-- ================================================================= -->
+  <div id="auth-modal" class="fixed inset-0 z-[150] flex items-center justify-center bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-500 p-4">
+    <div id="auth-modal-card" class="w-full max-w-5xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative transform scale-95 opacity-0 transition-all duration-500 flex flex-col md:flex-row h-[650px] max-h-[92vh]">
+      
+      <!-- Close Button -->
+      <button onclick="closeAuthModal()" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-brandOrange-500 hover:text-white flex items-center justify-center transition shadow-sm hover:shadow-md">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Left Side Premium Hero Banner -->
+      <div class="hidden md:flex w-[45%] bg-brandBlue-950 relative overflow-hidden flex-col p-10 text-white justify-between group">
+        <!-- Animated Background Image & Gradient -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=800')] bg-cover bg-center opacity-20 mix-blend-overlay group-hover:scale-110 transition duration-[10s]"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-brandBlue-950 via-brandBlue-900/90 to-brandBlue-800/80"></div>
+        <div class="absolute -top-32 -left-32 w-80 h-80 bg-brandOrange-500/20 rounded-full blur-[100px] pointer-events-none animate-pulse"></div>
+        <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-brandBlue-500/30 rounded-full blur-[100px] pointer-events-none"></div>
+        
+        <div class="relative z-10 flex flex-col gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-white rounded-[1.2rem] flex items-center justify-center shadow-2xl">
+              <i class="fa-solid fa-house-wrench text-brandBlue-600 text-2xl"></i>
+            </div>
+            <span class="text-3xl font-black tracking-tight drop-shadow-md">Baas<span class="text-brandOrange-400">.lk</span></span>
+          </div>
+          
+          <h2 class="text-4xl font-black leading-tight tracking-tight mt-4" id="txt-auth-modal-head">
+            Start Your <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-brandOrange-400 to-amber-200">Journey Here.</span>
+          </h2>
+          <p class="text-sm text-slate-300 font-medium leading-relaxed max-w-sm mt-2" id="txt-auth-modal-sub">
+            Join Sri Lanka's largest network of verified tradesmen. Connect directly, book instantly, and get your job done with zero hassle.
+          </p>
+        </div>
+
+        <!-- Premium Testimonial Card Floating -->
+        <div class="relative z-10 glass-card-dark p-5 rounded-3xl border border-white/10 shadow-2xl transform transition hover:-translate-y-2 mt-auto">
+          <div class="flex gap-1 text-brandOrange-400 text-xs mb-3">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-xs text-slate-200 italic leading-relaxed mb-4">
+            "Found a certified electrician in 10 minutes. The pricing was completely transparent. Highly recommended!"
+          </p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-full object-cover border-2 border-white/20" alt="Kasun Perera">
+            <div>
+              <div class="text-xs font-black text-white">Kasun Perera</div>
+              <div class="text-[10px] text-slate-400 font-bold">Colombo Customer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Form Area (Multi-Step Container) -->
+      <div class="w-full md:w-[55%] bg-white relative flex flex-col">
+        
+        <!-- Top Progress Bar (For Sign Up) -->
+        <div id="auth-progress-container" class="absolute top-0 left-0 right-0 h-1.5 bg-slate-100 hidden">
+          <div id="auth-progress-bar" class="h-full bg-gradient-to-r from-brandOrange-500 to-amber-400 auth-progress-bar w-1/4 rounded-r-full shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+        </div>
+
+        <div class="flex-1 p-8 sm:p-12 overflow-y-auto auth-scroll flex flex-col justify-center">
+          
+          <!-- Shared Header -->
+          <div class="mb-8 text-center sm:text-left">
+            <h3 id="modal-header-title" class="text-3xl font-black text-slate-900 tracking-tight mb-2">Welcome Back!</h3>
+            <p id="modal-header-sub" class="text-sm text-slate-500 font-medium">Please enter your details to sign in.</p>
+          </div>
+
+          <!-- Auth Tab Switcher -->
+          <div class="bg-slate-100 p-1.5 rounded-[1.2rem] flex items-center relative mb-8 shadow-inner">
+            <button id="tab-btn-signin" onclick="switchAuthMode('signin')" class="flex-1 py-3 text-sm font-black rounded-xl transition text-brandBlue-700 bg-white shadow-md">
+              Sign In
+            </button>
+            <button id="tab-btn-signup" onclick="switchAuthMode('signup')" class="flex-1 py-3 text-sm font-black text-slate-500 hover:text-slate-800 rounded-xl transition">
+              Create Account
+            </button>
+          </div>
+
+          <!-- ============================== -->
+          <!-- SIGN IN VIEW -->
+          <!-- ============================== -->
+          <div id="view-signin" class="space-y-5">
+            
+            <div class="floating-input-group">
+              <input type="tel" id="si-phone" class="floating-input" placeholder=" " required>
+              <label class="floating-label"><i class="fa-solid fa-phone mr-2"></i>Mobile Number</label>
+            </div>
+
+            <div class="floating-input-group mb-2">
+              <input type="password" id="si-pass" class="floating-input" placeholder=" " required>
+              <label class="floating-label"><i class="fa-solid fa-lock mr-2"></i>Password</label>
+            </div>
+
+            <div class="flex items-center justify-between mb-6">
+              <label class="flex items-center gap-2 cursor-pointer group">
+                <input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-brandBlue-600 focus:ring-brandBlue-500 transition cursor-pointer">
+                <span class="text-xs font-bold text-slate-500 group-hover:text-slate-800 transition">Remember me</span>
+              </label>
+              <a href="#" class="text-xs font-black text-brandOrange-500 hover:text-brandOrange-600 transition">Forgot Password?</a>
+            </div>
+
+            <button onclick="simulateAuthSuccess('signin')" class="w-full btn-3d-blue bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-4 rounded-2xl shadow-xl text-sm transition flex items-center justify-center gap-2">
+              <span>Sign In Securely</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <!-- Social Logins -->
+            <div class="mt-8 relative">
+              <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+              <div class="relative flex justify-center text-xs"><span class="px-3 bg-white text-slate-400 font-bold uppercase tracking-widest">Or continue with</span></div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 mt-6">
+              <button class="social-btn flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-100 bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs shadow-sm transition">
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-4 h-4" alt="Google"> Google
+              </button>
+              <button class="social-btn flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-slate-100 bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs shadow-sm transition">
+                <i class="fa-brands fa-facebook text-brandBlue-600 text-base"></i> Facebook
+              </button>
+            </div>
+          </div>
+
+          <!-- ============================== -->
+          <!-- SIGN UP VIEW (MULTI-STEP) -->
+          <!-- ============================== -->
+          <div id="view-signup" class="hidden relative h-[380px] overflow-hidden">
+            
+            <!-- Step 1: Role -->
+            <div id="su-step-1" class="absolute inset-0 transition-transform duration-500 transform translate-x-0 flex flex-col">
+              <h4 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-4">Step 1: Choose Your Role</h4>
+              <div class="grid grid-cols-2 gap-4 flex-1">
+                
+                <label class="cursor-pointer group h-full">
+                  <input type="radio" name="su-role" value="customer" checked class="peer sr-only">
+                  <div class="h-full p-5 rounded-2xl border-2 border-slate-200 peer-checked:border-brandBlue-500 peer-checked:bg-brandBlue-50 peer-checked:shadow-[0_0_15px_rgba(0,102,254,0.15)] transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 relative overflow-hidden">
+                    <div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+                      <i class="fa-solid fa-circle-check text-brandBlue-500 text-lg"></i>
+                    </div>
+                    <div class="w-16 h-16 rounded-full bg-white text-brandBlue-600 flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition">
+                      <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-black text-slate-900 text-sm">Customer</h5>
+                      <p class="text-[10px] font-bold text-slate-500 mt-1">I want to hire a Baas</p>
+                    </div>
+                  </div>
+                </label>
+
+                <label class="cursor-pointer group h-full">
+                  <input type="radio" name="su-role" value="baas" class="peer sr-only">
+                  <div class="h-full p-5 rounded-2xl border-2 border-slate-200 peer-checked:border-brandOrange-500 peer-checked:bg-amber-50 peer-checked:shadow-[0_0_15px_rgba(245,158,11,0.15)] transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 relative overflow-hidden">
+                    <div class="absolute top-2 right-2 opacity-0 peer-checked:opacity-100 transition-opacity">
+                      <i class="fa-solid fa-circle-check text-brandOrange-500 text-lg"></i>
+                    </div>
+                    <div class="w-16 h-16 rounded-full bg-white text-brandOrange-500 flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition">
+                      <i class="fa-solid fa-toolbox"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-black text-slate-900 text-sm">Technician</h5>
+                      <p class="text-[10px] font-bold text-slate-500 mt-1">I want to provide services</p>
+                    </div>
+                  </div>
+                </label>
+
+              </div>
+              <button onclick="nextAuthStep(2)" class="w-full btn-3d bg-slate-900 hover:bg-slate-950 text-white font-black py-4 rounded-2xl shadow-xl text-sm transition flex items-center justify-center gap-2 mt-6">
+                Continue <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <!-- Step 2: Personal Info -->
+            <div id="su-step-2" class="absolute inset-0 transition-transform duration-500 transform translate-x-full flex flex-col space-y-4">
+              <h4 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-2">Step 2: Personal Details</h4>
+              
+              <div class="floating-input-group mb-1">
+                <input type="text" id="su-name" class="floating-input" placeholder=" " required>
+                <label class="floating-label"><i class="fa-regular fa-user mr-2"></i>Full Name</label>
+              </div>
+
+              <div class="floating-input-group mb-1">
+                <input type="tel" id="su-phone" class="floating-input" placeholder=" " required>
+                <label class="floating-label"><i class="fa-solid fa-phone mr-2"></i>Mobile Number (+94)</label>
+              </div>
+
+              <div class="floating-input-group mb-0">
+                <input type="password" id="su-pass" class="floating-input" placeholder=" " oninput="checkPasswordStrength(this.value)" required>
+                <label class="floating-label"><i class="fa-solid fa-lock mr-2"></i>Create Password</label>
+                <!-- Strength Meter -->
+                <div id="pass-meter" class="strength-meter">
+                  <div class="strength-segment seg-1"></div>
+                  <div class="strength-segment seg-2"></div>
+                  <div class="strength-segment seg-3"></div>
+                </div>
+              </div>
+
+              <div class="flex gap-3 mt-auto pt-4">
+                <button onclick="nextAuthStep(1)" class="px-6 py-4 rounded-2xl bg-slate-100 text-slate-600 font-black hover:bg-slate-200 transition">Back</button>
+                <button onclick="nextAuthStep(3)" class="flex-1 btn-3d bg-slate-900 hover:bg-slate-950 text-white font-black py-4 rounded-2xl shadow-xl text-sm transition">Continue</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Location / Tech Details -->
+            <div id="su-step-3" class="absolute inset-0 transition-transform duration-500 transform translate-x-full flex flex-col space-y-4">
+              <h4 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-2">Step 3: Location Details</h4>
+              
+              <div class="floating-input-group mb-1">
+                <select class="floating-input cursor-pointer" required>
+                  <option value="" disabled selected hidden></option>
+                  <option value="colombo">Colombo</option>
+                  <option value="gampaha">Gampaha</option>
+                  <option value="kandy">Kandy</option>
+                  <option value="galle">Galle</option>
+                </select>
+                <label class="floating-label bg-white"><i class="fa-solid fa-map-pin mr-2"></i>Select District</label>
+              </div>
+
+              <div class="floating-input-group mb-1">
+                <input type="text" class="floating-input" placeholder=" " required>
+                <label class="floating-label"><i class="fa-solid fa-building mr-2"></i>City / Town</label>
+              </div>
+
+              <!-- Extra field dynamically shown for Baas -->
+              <div id="su-baas-extra" class="floating-input-group mb-1 hidden">
+                <select class="floating-input cursor-pointer">
+                  <option value="" disabled selected hidden></option>
+                  <option value="ac">AC Repair</option>
+                  <option value="plumbing">Plumbing</option>
+                  <option value="electrical">Electrical</option>
+                </select>
+                <label class="floating-label bg-white"><i class="fa-solid fa-wrench mr-2"></i>Primary Trade</label>
+              </div>
+
+              <div class="flex gap-3 mt-auto pt-4">
+                <button onclick="nextAuthStep(2)" class="px-6 py-4 rounded-2xl bg-slate-100 text-slate-600 font-black hover:bg-slate-200 transition">Back</button>
+                <button onclick="nextAuthStep(4)" class="flex-1 btn-3d bg-brandOrange-500 hover:bg-brandOrange-600 text-slate-950 font-black py-4 rounded-2xl shadow-xl text-sm transition">Send OTP</button>
+              </div>
+            </div>
+
+            <!-- Step 4: OTP Verification -->
+            <div id="su-step-4" class="absolute inset-0 transition-transform duration-500 transform translate-x-full flex flex-col text-center">
+              
+              <div class="w-16 h-16 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+                <i class="fa-solid fa-mobile-screen-button animate-pulse"></i>
+              </div>
+              <h4 class="text-xl font-black text-slate-900 tracking-tight">Verify Your Number</h4>
+              <p class="text-xs text-slate-500 font-medium mt-2 mb-6 px-4">We've sent a 4-digit code to <strong class="text-slate-800" id="otp-phone-display">+94 77 *** ****</strong>. Enter it below.</p>
+              
+              <!-- Custom OTP Input Group -->
+              <div class="flex justify-center gap-3 mb-8">
+                <input type="text" maxlength="1" class="w-14 h-14 text-center text-2xl font-black text-slate-900 bg-slate-50 border-2 border-slate-200 rounded-xl focus:border-brandBlue-600 focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="•">
+                <input type="text" maxlength="1" class="w-14 h-14 text-center text-2xl font-black text-slate-900 bg-slate-50 border-2 border-slate-200 rounded-xl focus:border-brandBlue-600 focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="•">
+                <input type="text" maxlength="1" class="w-14 h-14 text-center text-2xl font-black text-slate-900 bg-slate-50 border-2 border-slate-200 rounded-xl focus:border-brandBlue-600 focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="•">
+                <input type="text" maxlength="1" class="w-14 h-14 text-center text-2xl font-black text-slate-900 bg-slate-50 border-2 border-slate-200 rounded-xl focus:border-brandBlue-600 focus:bg-white focus:outline-none transition-all shadow-sm" placeholder="•">
+              </div>
+
+              <div class="flex gap-3 mt-auto">
+                <button onclick="nextAuthStep(3)" class="px-6 py-4 rounded-2xl bg-slate-100 text-slate-600 font-black hover:bg-slate-200 transition">Back</button>
+                <button onclick="simulateAuthSuccess('signup')" class="flex-1 btn-3d-blue bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-4 rounded-2xl shadow-xl text-sm transition flex items-center justify-center gap-2">
+                  Verify & Create Account <i class="fa-solid fa-check"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Success State Overlay -->
+            <div id="su-success" class="absolute inset-0 bg-white z-20 transition-opacity duration-500 opacity-0 pointer-events-none flex flex-col items-center justify-center text-center">
+              <div class="w-24 h-24 rounded-full bg-emerald-100 text-emerald-500 flex items-center justify-center text-5xl shadow-[0_0_30px_rgba(16,185,129,0.3)] mb-6 transform scale-50 transition-transform duration-700 delay-300" id="success-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <h3 class="text-2xl font-black text-slate-900 mb-2">Success!</h3>
+              <p class="text-sm text-slate-500 font-medium">Welcome to the Baas.lk platform.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 2: BAAS DETAILED PROFILE VIEW -->
+  <!-- ================================================================= -->
+  <div id="profile-modal" class="fixed inset-0 z-[160] flex items-center justify-center bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4">
+    <div id="profile-modal-card" class="w-full max-w-2xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative transform scale-95 opacity-0 transition-all duration-300 p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+      
+      <button onclick="closeProfileModal()" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-brandOrange-500 hover:text-white flex items-center justify-center transition shadow-sm">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="flex items-center gap-4 mb-6">
+        <img id="prof-img" src="" class="w-20 h-20 rounded-2xl object-cover border-4 border-slate-100 shadow-lg" alt="Profile">
+        <div>
+          <h3 id="prof-name" class="text-xl font-black text-slate-900 flex items-center gap-2"></h3>
+          <p id="prof-title" class="text-xs font-bold text-brandBlue-600 mt-0.5"></p>
+          <div class="flex items-center gap-3 mt-2 text-xs font-bold text-slate-500">
+            <span class="flex items-center gap-1 text-amber-500"><i class="fa-solid fa-star"></i> <strong id="prof-rating" class="text-slate-800"></strong></span>
+            <span>•</span>
+            <span><strong id="prof-jobs" class="text-slate-800"></strong> සේවාවන් සම්පූර්ණ කර ඇත</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Badges -->
+      <div class="grid grid-cols-2 gap-3 mb-6 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+        <div>
+          <div class="text-[10px] font-black text-slate-400 uppercase">ප්‍රදේශය (Location)</div>
+          <div id="prof-location" class="text-xs font-bold text-slate-800 mt-0.5"></div>
+        </div>
+        <div>
+          <div class="text-[10px] font-black text-slate-400 uppercase">පළපුරුද්ද (Experience)</div>
+          <div id="prof-exp" class="text-xs font-bold text-slate-800 mt-0.5"></div>
+        </div>
+      </div>
+
+      <!-- Trust Credentials -->
+      <div class="mb-6 space-y-2">
+        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">තහවුරු කළ සහතික (Verified Badges)</h4>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-lg border border-emerald-200 flex items-center gap-1">
+            <i class="fa-solid fa-id-card"></i> National ID Verified
+          </span>
+          <span class="bg-blue-50 text-brandBlue-700 text-[10px] font-black px-3 py-1 rounded-lg border border-blue-200 flex items-center gap-1">
+            <i class="fa-solid fa-shield-check"></i> Police Cleared
+          </span>
+          <span class="bg-amber-50 text-amber-700 text-[10px] font-black px-3 py-1 rounded-lg border border-amber-200 flex items-center gap-1">
+            <i class="fa-solid fa-award"></i> Skill Certified
+          </span>
+        </div>
+      </div>
+
+      <!-- Recent Reviews -->
+      <div class="space-y-3 mb-6">
+        <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider">පාරිභෝගික ඇගයීම් (Customer Reviews)</h4>
+        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs space-y-1">
+          <div class="flex justify-between font-bold text-slate-800">
+            <span>සුනිල් පෙරේරා (Sunil Perera)</span>
+            <span class="text-amber-500">⭐⭐⭐⭐⭐ 5.0</span>
+          </div>
+          <p class="text-slate-600 text-[11px] leading-relaxed">"ඉතාම ඉක්මනින් ඇවිත් සර්විස් එක කරලා දුන්නා. සාධාරණ ගාස්තුවක් ගත්තේ. වැඩේ 100% ක් සාර්ථකයි!"</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex gap-3">
+        <button id="prof-book-btn" onclick="openBookingFromProfile()" class="flex-1 btn-3d-blue bg-brandBlue-900 hover:bg-brandBlue-950 text-white font-black py-3 rounded-xl text-xs shadow-md transition">
+          වැඩේ බාරදෙන්න (Book Now)
+        </button>
+        <button id="prof-wa-btn" onclick="openWaFromProfile()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3 rounded-xl text-xs shadow-md transition flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 3: DIRECT BOOKING APPOINTMENT MODAL -->
+  <!-- ================================================================= -->
+  <div id="booking-modal" class="fixed inset-0 z-[170] flex items-center justify-center bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4">
+    <div id="booking-modal-card" class="w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative transform scale-95 opacity-0 transition-all duration-300 p-6 sm:p-8">
+      
+      <button onclick="closeBookingModal()" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-brandOrange-500 hover:text-white flex items-center justify-center transition shadow-sm">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="mb-5">
+        <span class="text-[10px] font-black text-brandOrange-600 uppercase tracking-widest">ක්ෂණික වෙන්කරගැනීම</span>
+        <h3 class="text-xl font-black text-slate-900 mt-0.5">සේවාව වෙන්කරගන්න (Book Service)</h3>
+        <p class="text-xs text-slate-500 font-medium">කාර්මික ශිල්පියා: <strong id="book-baas-name" class="text-brandBlue-700"></strong></p>
+      </div>
+
+      <form onsubmit="handleBookingSubmit(event)" class="space-y-3.5">
+        
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+            <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">දිනය (Date)</label>
+            <input type="date" id="book-date" class="w-full px-3 pb-1.5 bg-transparent text-xs font-bold text-slate-900 focus:outline-none" required>
+          </div>
+          <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+            <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">වේලාව (Time Slot)</label>
+            <select class="w-full px-3 pb-1.5 bg-transparent text-xs font-bold text-slate-900 focus:outline-none">
+              <option>උදෑසන (08:30 AM - 12:00 PM)</option>
+              <option>දහවල් (12:00 PM - 03:30 PM)</option>
+              <option>සවස (03:30 PM - 07:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+          <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">ඔබේ ලිපිනය / නගරය (Address / City)</label>
+          <input type="text" placeholder="නො. 45, ගාලු පාර, කොළඹ 03" class="w-full px-3 pb-2 bg-transparent text-xs font-bold text-slate-900 focus:outline-none" required>
+        </div>
+
+        <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+          <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">දුරකථන අංකය (Contact Number)</label>
+          <div class="flex items-center px-3 pb-1.5">
+            <span class="text-xs font-black text-slate-500 mr-2">+94</span>
+            <input type="tel" placeholder="77 123 4567" class="w-full bg-transparent text-xs font-bold text-slate-900 focus:outline-none" required>
+          </div>
+        </div>
+
+        <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+          <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">වැඩේ විස්තරය (Job Details / Notes)</label>
+          <textarea rows="2" placeholder="අලුත්වැඩියාව පිළිබඳ කෙටි සටහනක්..." class="w-full px-3 pb-2 bg-transparent text-xs font-bold text-slate-900 focus:outline-none resize-none"></textarea>
+        </div>
+
+        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-[11px] text-amber-900 font-bold flex items-center justify-between">
+          <span>අවම ආරම්භක ගාස්තුව:</span>
+          <span class="text-sm font-black text-brandOrange-700" id="book-rate-display">රු. 2,500</span>
+        </div>
+
+        <button type="submit" class="w-full btn-3d bg-gradient-to-r from-brandOrange-500 to-amber-500 text-slate-950 font-black py-3.5 rounded-2xl shadow-lg text-xs flex items-center justify-center gap-2">
+          <span>වෙන්කිරීම තහවුරු කරන්න (Confirm Booking)</span>
+          <i class="fa-solid fa-circle-check"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 4: EMERGENCY SOS HOTLINE MODAL -->
+  <!-- ================================================================= -->
+  <div id="sos-modal" class="fixed inset-0 z-[180] flex items-center justify-center bg-slate-950/85 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4">
+    <div id="sos-modal-card" class="w-full max-w-md bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative transform scale-95 opacity-0 transition-all duration-300 p-6 sm:p-8 border-2 border-rose-500/30 text-center">
+      
+      <button onclick="closeSosModal()" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-rose-500 hover:text-white flex items-center justify-center transition shadow-sm">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="w-16 h-16 rounded-3xl bg-rose-100 text-rose-600 flex items-center justify-center text-3xl mx-auto mb-4 animate-bounce">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+
+      <h3 class="text-2xl font-black text-slate-950" id="txt-sos-modal-head">හදිසි අනතුරු සහ SOS සේවාව</h3>
+      <p class="text-xs text-slate-500 mt-1 leading-relaxed font-medium" id="txt-sos-modal-sub">
+        වතුර බට පිපිරී යාම්, හදිසි විදුලි විසන්ධි වීම් හෝ වාහන බිඳවැටීම් සඳහා මිනිත්තු 30 තුළ ආසන්නතම බාස් කෙනෙකු ඔබගේ ස්ථානයට එවනු ලැබේ.
+      </p>
+
+      <div class="my-6 p-4 rounded-2xl bg-rose-50 border border-rose-200">
+        <span class="text-[10px] font-black text-rose-500 uppercase tracking-widest block">24/7 ක්ෂණික සහායක අංකය</span>
+        <a href="tel:0112345678" class="text-2xl sm:text-3xl font-black text-rose-600 tracking-tight mt-0.5 block hover:underline">011 234 5678</a>
+        <span class="text-[11px] text-slate-500 font-bold block mt-1">හෝ WhatsApp හරහා: 077 123 4567</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <a href="tel:0112345678" class="btn-3d bg-rose-600 hover:bg-rose-700 text-white font-black py-3 rounded-xl text-xs flex items-center justify-center gap-2">
+          <i class="fa-solid fa-phone"></i>
+          <span>දැන් අමතන්න</span>
+        </a>
+        <button onclick="dispatchUrgentSos()" class="bg-slate-900 hover:bg-slate-950 text-white font-black py-3 rounded-xl text-xs flex items-center justify-center gap-2 shadow">
+          <i class="fa-solid fa-paper-plane text-brandOrange-400"></i>
+          <span>SOS Dispatch</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- MODAL 5: POST A FREE JOB (MULTI-STEP) -->
+  <!-- ================================================================= -->
+  <div id="job-modal" class="fixed inset-0 z-[175] flex items-center justify-center bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 p-4">
+    <div id="job-modal-card" class="w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl overflow-hidden relative transform scale-95 opacity-0 transition-all duration-300 p-6 sm:p-8 max-h-[92vh] overflow-y-auto">
+      
+      <button onclick="closeJobModal()" class="absolute top-5 right-5 z-20 w-10 h-10 rounded-full bg-slate-100 text-slate-500 hover:bg-brandOrange-500 hover:text-white flex items-center justify-center transition shadow-sm">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="mb-5">
+        <span class="text-[10px] font-black text-brandOrange-600 uppercase tracking-widest">නොමිලේ දැන්වීමක්</span>
+        <h3 class="text-2xl font-black text-slate-900 mt-0.5" id="txt-post-job-heading">ඔබේ වැඩේ නොමිලේ දමන්න</h3>
+        <p class="text-xs text-slate-500 font-medium" id="txt-post-job-sub">විස්තර ඇතුළත් කරන්න. ප්‍රදේශයේ බාස්ලාගෙන් මිල ගණන් (Quotes) විනාඩි කිහිපයකින් ලබාගන්න.</p>
+      </div>
+
+      <form onsubmit="handlePostJobSubmit(event)" class="space-y-3.5">
+        
+        <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+          <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">වැඩේ නම (Job Title)</label>
+          <input type="text" id="post-job-title" placeholder="උදා: නිවසේ Inverter AC 2ක් සර්විස් කිරීම" class="w-full px-3 pb-2 bg-transparent text-xs font-bold text-slate-900 focus:outline-none" required>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+            <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">සේවා කාණ්ඩය (Category)</label>
+            <select id="post-job-cat" class="w-full px-3 pb-1.5 bg-transparent text-xs font-bold text-slate-900 focus:outline-none">
+              <option value="ac">AC Repair & Service</option>
+              <option value="plumbing">Plumbing (නල වැඩ)</option>
+              <option value="electrical">Electrical (විදුලි වැඩ)</option>
+              <option value="vehicle">Vehicle Care (වාහන වැඩ)</option>
+              <option value="carpentry">Carpentry (වඩු වැඩ)</option>
+              <option value="cctv">CCTV & Computer</option>
+              <option value="painting">Painting & Roofing</option>
+              <option value="masonry">Masonry (මේසන්)</option>
+            </select>
+          </div>
+          <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+            <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">දිස්ත්‍රික්කය (District)</label>
+            <select id="post-job-district" class="w-full px-3 pb-1.5 bg-transparent text-xs font-bold text-slate-900 focus:outline-none">
+              <option value="colombo">කොළඹ (Colombo)</option>
+              <option value="gampaha">ගම්පහ (Gampaha)</option>
+              <option value="kandy">මහනුවර (Kandy)</option>
+              <option value="galle">ගාල්ල (Galle)</option>
+              <option value="kurunegala">කුරුණෑගල (Kurunegala)</option>
+              <option value="jaffna">යාපනය (Jaffna)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+            <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">නගරය / ලිපිනය (City / Location)</label>
+            <input type="text" placeholder="මහරගම, නුගේගොඩ..." class="w-full px-3 pb-2 bg-transparent text-xs font-bold text-slate-900 focus:outline-none" required>
+          </div>
+          <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+            <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">ඔබේ බලාපොරොත්තු බජට් එක (LKR)</label>
+            <input type="text" id="post-job-budget" placeholder="රු. 5,000" class="w-full px-3 pb-2 bg-transparent text-xs font-bold text-slate-900 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+          <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">වැඩේ සම්පූර්ණ විස්තරය (Job Description)</label>
+          <textarea rows="3" placeholder="සිදුකළ යුතු අලුත්වැඩියාව පිළිබඳ හැකි තරම් විස්තර සපයන්න..." class="w-full px-3 pb-2 bg-transparent text-xs font-bold text-slate-900 focus:outline-none resize-none" required></textarea>
+        </div>
+
+        <div class="relative bg-slate-50 border border-slate-200 rounded-xl">
+          <label class="block pt-1.5 px-3 text-[9px] font-black text-slate-400 uppercase">ඔබගේ දුරකථන අංකය (WhatsApp Phone)</label>
+          <div class="flex items-center px-3 pb-1.5">
+            <span class="text-xs font-black text-slate-500 mr-2">+94</span>
+            <input type="tel" placeholder="77 123 4567" class="w-full bg-transparent text-xs font-bold text-slate-900 focus:outline-none" required>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full btn-3d bg-gradient-to-r from-brandOrange-500 to-amber-500 text-slate-950 font-black py-3.5 rounded-2xl shadow-lg text-xs flex items-center justify-center gap-2">
+          <span>නොමිලේ පළකරන්න (Post Job Now)</span>
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ================================================================= -->
+  <!-- EXTERNAL JAVASCRIPT CORE -->
+  <!-- ================================================================= -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+/* ================================================================= */
+/* BAAS.LK - CORE STYLESHEET (3D & GLASSPHORPHISM DESIGN SYSTEM)   */
+/* ================================================================= */
+
+/* Base Adjustments */
+body {
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  background-color: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* 3D Perspective Container */
+.perspective-container {
+  perspective: 1200px;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tilt-element-3d {
+  transform: translateZ(35px);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tilt-element-depth {
+  transform: translateZ(55px);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Glassmorphism Styles */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.glass-card-dark {
+  background: rgba(2, 24, 69, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-card-accent {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* 3D Pushable Buttons */
+.btn-3d {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 0 #b45309, 0 8px 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-3d:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #b45309, 0 12px 22px rgba(245, 158, 11, 0.5);
+}
+
+.btn-3d:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #b45309, 0 3px 6px rgba(245, 158, 11, 0.3);
+}
+
+.btn-3d-blue {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 0 #003eb8, 0 8px 15px rgba(0, 102, 254, 0.35);
+}
+
+.btn-3d-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #003eb8, 0 12px 22px rgba(0, 102, 254, 0.45);
+}
+
+.btn-3d-blue:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #003eb8, 0 3px 6px rgba(0, 102, 254, 0.2);
+}
+
+/* Shimmer Sweep Effect */
+.btn-shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 220%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  transform: rotate(25deg) translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-shine-sweep:hover::after {
+  transform: rotate(25deg) translateY(100%);
+}
+
+/* Ambient Background Dot Grid */
+.bg-dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+/* Scroll Reveal Transition */
+.reveal-elem {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-elem.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+  border: 2px solid #f1f5f9;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}
+
+/* Scrollbar None Utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Premium Auth Floating Labels & Inputs */
+.floating-input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.floating-input {
+  width: 100%;
+  padding: 1.25rem 1.25rem 0.5rem;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.floating-input:focus {
+  outline: none;
+  border-color: #0066fe;
+  background: #ffffff;
+  box-shadow: 0 4px 20px -5px rgba(0, 102, 254, 0.15), 0 0 0 4px rgba(0, 102, 254, 0.1);
+}
+.floating-label {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #94a3b8;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+.floating-input:focus ~ .floating-label,
+.floating-input:not(:placeholder-shown) ~ .floating-label {
+  top: 0.5rem;
+  font-size: 0.65rem;
+  color: #0066fe;
+  transform: translateY(0);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Password Strength Indicator */
+.strength-meter {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 3px;
+}
+.strength-segment {
+  flex: 1;
+  background: transparent;
+  transition: background 0.4s ease;
+}
+.strength-1 .seg-1 { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.5); }
+.strength-2 .seg-1, .strength-2 .seg-2 { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.5); }
+.strength-3 .seg-1, .strength-3 .seg-2, .strength-3 .seg-3 { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.5); }
+
+/* Staggered Animations & Progress */
+.stagger-1 { transition-delay: 100ms; }
+.stagger-2 { transition-delay: 200ms; }
+.stagger-3 { transition-delay: 300ms; }
+.stagger-4 { transition-delay: 400ms; }
+
+.auth-progress-bar {
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.step-indicator {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Social Buttons */
+.social-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.social-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.social-btn:hover::before {
+  opacity: 0.05;
+}
+.social-btn:active {
+  transform: scale(0.97);
+}
+
+/* Magnetic Button Wrapper */
+.magnetic-wrap {
+  display: inline-block;
+}
+
+/* Premium Rotating Gradient Border for Cards */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin-gradient {
+  to { --angle: 360deg; }
+}
+.service-card {
+  position: relative;
+}
+.service-card::before, .service-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle), transparent 70%, #0066fe 85%, #f59e0b 100%);
+  z-index: -1;
+  animation: spin-gradient 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.service-card::after {
+  filter: blur(10px);
+}
+.service-card:hover::before, .service-card:hover::after {
+  opacity: 1;
+}

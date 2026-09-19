@@ -1,0 +1,9 @@
+{
+  "name": "baas-lk",
+  "version": "1.0.0",
+  "description": "Sri Lanka's #1 Trusted Baas Network",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
